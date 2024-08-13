@@ -1,0 +1,24 @@
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: blue;
+    color: white;
+}
+.sidebar .nav-link {
+    color: white;
+}
+.sidebar .nav-link.active {
+    background-color: #555;
+}
+.sidebar .nav-link:hover {
+    background-color: #444;
+}
+.sidebar .nav-item {
+    margin-bottom: 10px;
+}
+.sidebar .nav-icon {
+    margin-right: 10px;
+}

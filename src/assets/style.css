@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;1,400&display=swap");
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+nav a img {
+  background-color: white;
+  border-radius: 50%;
+}
+
+nav .nav-link {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+nav .nav-item .active {
+  color: white;
+}
+
+nav .login {
+  padding: 15px;
+  margin: 15px;
+}
+
+nav .login a i {
+  color: white;
+  font-size: 20pt;
+}
+
+header {
+  height: 60vh;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+  background-position: center;
+  background-size: cover;
+}
+.ulDan{
+  list-style-type:none ;
+}
+header h1 {
+  text-transform: capitalize;
+  color: #e60022;
+}
+
+header form {
+  width: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-section .search-box {
+  border: 1px solid #e60022;
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  border-radius: 20px;
+  color: gray;
+}
+
+.search-section .search-box:focus {
+  border: 2px solid green;
+}
+
+.search-section i {
+  font-size: 24pt;
+  color: #e60023;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  margin: 3px;
+  transition: 0.4s linear all;
+}
+
+.search-section i:hover {
+  background-color: white;
+}
+
+header p {
+  width: 50%;
+  margin: auto;
+  padding: 5px;
+  color: white;
+}
+
+header button {
+  width: 150px;
+  height: 35px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  background-color: #e60023;
+  border: 2px solid #e60022;
+  text-transform: uppercase;
+  margin: 5px;
+  transition: 0.4s linear all;
+}
+
+header button:hover {
+  background-color: transparent;
+}
+
+main .info-about-web .info-card {
+  padding: 2px;
+  text-align: center;
+  background-color: #f8f9fa;
+  top: -20px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main .info-about-web .info-card h4 {
+  text-transform: capitalize;
+  margin: 5px;
+}
+
+main .info-about-web .info-card img {
+  width: 100%;
+  height: 200px;
+}
+
+main .info-about-web .info-card button {
+  width: 150px;
+  height: 35px;
+  border: 2px solid #e60022;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 20px;
+  text-transform: capitalize;
+  margin: 5px;
+  transition: 0.4s linear all;
+}
+
+.info-about-web .info-card button:hover {
+  cursor: pointer;
+  background-color: #e60022;
+  color: white;
+}
+
+main .blogs .title {
+  margin: 20px;
+  text-align: center;
+}
+
+main .blogs .title h2 {
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: #e60022;
+  text-align: center;
+}
+
+main .blogs .blog {
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main .blogs .blog h3 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 5px;
+  border-bottom: #e60023 2px solid;
+}
+
+main .blogs .blog img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+main .blogs .blog p {
+  padding: 10px;
+}
+
+
+.login-page{
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-section{
+  width: 60%;
+  margin-top: 500px;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  margin-top: 100px;
+  box-shadow: 0px 2px 3px grey;
+  border-radius: 20px;
+}
+
+.loginwelcome {
+  width: 50%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.loginwelcome .welcome {
+  width: 100%;
+  height: 100%;
+  /* background-color: #e60023; */
+  opacity: 0.9;
+  margin: auto;
+}
+
+.loginwelcome .welcome img {
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.loginwelcome .welcome h1 {
+  text-transform: capitalize;
+  color: white;
+}
+
+.loginwelcome .welcome P {
+  text-transform: capitalize;
+  color: white;
+  padding: 5px;
+}
+
+.loginwelcome .welcome .btns button {
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  outline: none;
+  border: #156cca 2px solid;
+  background-color: white;
+  cursor: pointer;
+  color: #156cca;
+  text-transform: capitalize;
+  transition: 0.4s linear all;
+  font-weight: bolder;
+}
+
+.loginwelcome .welcome .btns button:hover {
+  transform: scale(1.1);
+  background-color: #e60022;
+  color: white;
+  border: white 2px solid;
+}
+
+.login-section form{
+  width: 50%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.login-section form h2 {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+
+.login-section form input{
+  width: 300px;
+  height: 20px;
+  padding: 25px;
+  margin: auto;
+  margin-top: 1px;
+  border: #e60022 solid 1px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.login-section form input:focus,.register-section form input:focus {
+  border: green 2px solid;
+}
+
+.login-section form input::-moz-placeholder {
+  text-transform: capitalize;
+}
+
+.login-section form input::placeholder {
+  text-transform: capitalize;
+}
+
+.login-section form button,.register-section form button {
+  width: 100px;
+  height: 34px;
+  margin: auto;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  text-transform: capitalize;
+  background-color: #e60022;
+  transition: 0.4s linear all;
+  border: 2px solid #e60022;
+}
+
+.login-section form button:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: #e60022;
+}
+
+.login-section form span {
+  text-transform: capitalize;
+}
+
+.login-section form i {
+  font-size: 22pt;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.login-section form .fa-facebook {
+  color: blue;
+}
+
+.login-section form .fa-google {
+  color: #dd4b39;
+}
+
+.container .addblog form {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.container .addblog form h2 {
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom: #e60022 2px solid;
+  margin: 5px auto;
+  padding: 5px;
+  text-transform: capitalize;
+}
+
+.container .addblog form input {
+  width: 400px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px gray solid;
+  outline: none;
+}
+
+.container .addblog form input:focus {
+  box-shadow: 0 0 3pt rgb(22, 174, 14);
+  border: 2px solid #5885ef;
+}
+
+.container .addblog form textarea {
+  outline: #5885ef;
+  margin: 5px;
+}
+
+.container .addblog form textarea::-moz-placeholder {
+  text-transform: capitalize;
+}
+
+.container .addblog form textarea::placeholder {
+  text-transform: capitalize;
+}
+
+.container .addblog form input::-moz-placeholder {
+  text-transform: capitalize;
+}
+
+.container .addblog form input::placeholder {
+  text-transform: capitalize;
+}
+
+.container .addblog form textarea:focus {
+  box-shadow: 0 0 3pt rgb(6, 77, 2);
+  border: 2px solid #5885ef;
+}
+
+#uploadimg {
+  opacity: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.uploadesection {
+  position: relative;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.uploadesection span {
+  z-index: -99;
+  top: 5px;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 2px;
+  text-transform: capitalize;
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+  color: #1c80dc;
+  position: absolute;
+}
+
+.container form button {
+  width: 150px;
+  background-color: #e60022;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  margin: auto;
+  padding: 5px;
+  border: 2px solid #e60022;
+}
+
+.container form button:hover {
+  background-color: transparent;
+  color: #e60022;
+}/*# sourceMappingURL=style.css.map */
+
+
+/* responseve page login */
+
