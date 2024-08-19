@@ -63,7 +63,7 @@ export default class Login extends React.Component {
               {/* Logo Section */}
               <LoginCompenant url="/register" type="Sign Up" />
             </div>
-            <div className="col-md-6 p-4">
+            <div className="col-md-6 p-4" style={{backgroundColor : "#fff"}}>
               {/* Form Section */}
               <h3 className="text-center mb-4">Login</h3>
               <form onSubmit={this.submitForm}>

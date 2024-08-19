@@ -40,7 +40,7 @@ export default class FaceDetection extends Component {
       video.srcObject=this.stream
       video.play();
       this.setState({ isRunning: true });
-      this.intervalId = setInterval(this.detectFaces, 1000 / 30);
+      this.intervalId = setInterval(this.detectFaces, 1000 / 10);
     } catch (err) {
       console.error('Error accessing the camera: ', err);
     } 
@@ -114,7 +114,7 @@ export default class FaceDetection extends Component {
       canvas.height = 480;
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const dataURL = canvas.toDataURL('image/png');
-      const response = await FaceDetectionService.detectFaces(dataURL,this.userCurrent.id)
+      const response = await FaceDetectionService.detectFaces(dataURL,this.userCurrent.id,this.state.isRunning)
       const data = await response.json();
       this.updateInfoContainer(data);
       this.setState({ frame: 'data:image/jpeg;base64,' + data.frame });
@@ -124,6 +124,8 @@ export default class FaceDetection extends Component {
   }
   updateInfoContainer = (data) => {
     const faceCount = data.class_names.length;
+    console.log("class names")
+    console.log(data.class_names)
     const classCounts = {};
 
     data.class_names.forEach(class_name => {
@@ -139,26 +141,39 @@ export default class FaceDetection extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="main-container">
+      <div style={{display : "flex",justifyContent : "space-around"}}>
         <div id="camera">
           <video ref={this.videoRef} width="640" height="480" autoPlay style={{ display: 'none' }}></video>
           <canvas ref={this.canvasRef} width="640" height="480" style={{ display: 'none' }}></canvas>
           <img id="processed-image" src={this.state.frame} width="640" height="480" alt="" />
+          <div style={{display : "flex" ,justifyContent : "center",marginTop : "10px"}}>
+            <button
+              onClick={this.state.isRunning ? ()=>this.setState({showModalConf : true,isRunning : false}): this.startCamera}
+              className="control-button"
+              style={{ backgroundColor: this.state.isRunning ? 'red' : '#4CAF50'}}
+            >
+              {this.state.isRunning ? 'Arrêter' : 'Lancer'}
+            </button>
+          </div>
         </div>
-        <div className="info-container" id="info">
+        <div className="info-container" id="info" style={{color : "#000"}} > 
           {Object.entries(this.state.classCounts).map(([class_name, percentage]) => (
             <div key={class_name}>Pourcentage des étudiants qui sont {class_name} est {percentage.toFixed(2)}%</div>
           ))}
+
+
         </div>
-        <div className="button-container">
+      </div>
+        {/* <div className="button-container">
           <button
-            onClick={this.state.isRunning ? ()=>this.setState({showModalConf : true}): this.startCamera}
+            onClick={this.state.isRunning ? ()=>this.setState({showModalConf : true,isRunning : false}): this.startCamera}
             className="control-button"
             style={{ backgroundColor: this.state.isRunning ? 'red' : '#4CAF50' }}
           >
             {this.state.isRunning ? 'Arrêter' : 'Lancer'}
           </button>
-        </div>
+        </div> */}
         <Modal show={this.state.showModal} onHide={() => this.setState({showModal :  false})} centered>
         <Modal.Body className="text-center">
           <Spinner animation="border" role="status">
@@ -180,6 +195,8 @@ export default class FaceDetection extends Component {
           <option value="module1">Module 1</option>
           <option value="module2">Module 2</option>
           <option value="module3">Module 3</option>
+          <option value="module4">Module 4</option>
+
           {/* Add more options as needed */}
         </Form.Control>
       </Form.Group>

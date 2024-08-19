@@ -19,11 +19,12 @@ export default class FaceDetectionService{
             return cnxEtablie
         }
     }
-    static detectFaces = async (dataURL,idUser) => {
+    static detectFaces = async (dataURL,idUser,stop) => {
         try {
+          console.log("stop : ", stop)
           const response = await fetch(`${FaceDetectionService.URL_BASE_API}/detect`, {
             method: 'POST',
-            body: JSON.stringify({ image: dataURL,user : idUser }),
+            body: JSON.stringify({ image: dataURL,user : idUser,isStop : !stop }),
             headers: {
               'Content-Type': 'application/json'
             }

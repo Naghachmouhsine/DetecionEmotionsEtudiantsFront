@@ -1,58 +1,57 @@
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { BsBarChartLine, BsGrid1X2Fill, BsEmojiSmile, BsPersonCircle, BsFillGearFill, BsBoxArrowRight, BsPerson } from 'react-icons/bs';
+import { Link, useLocation } from 'react-router-dom';
+function SideBare({ openSidebarToggle, OpenSidebar ,user}) {
+  const location=useLocation()
+  const styleCurrentLink={
+                            backgroundColor : "#fff",
+                            borderTopLeftRadius : "20px",
+                            borderBottomLeftRadius : "20px",
+                          }
+  let sidebarItems=[
+    {to : "/dashboard","icone" :<BsGrid1X2Fill className='icon' />,"label" : "Dashboard"},
+    {to : "/emotionDetection","icone" :            <BsEmojiSmile className='icon' />,"label" : " Emotions Detections "},
+    {to : "/profile","icone" :   <BsPersonCircle className='icon' /> ,"label" : "Profile"},
+  ]
 
-export default class SideBare extends React.Component {
-    constructor(props){
-        super(props);
-        this.state={
-            expanded : true
-        }
-    }
-    render() {
-        const sideNavStyle = {
-            backgroundColor: '#0fa2eb',
-        };
+  console.log(user)
+  if(user.role==3)
+    sidebarItems.push({to : "/gestionUser",icone : <BsPerson  className='icon' />,label : "gestions utilisateurs" })
+  
 
-        const navItemStyle = {
-            color: '#fff',
-        };
+  return (
+    <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
+      <div className='sidebar-title'>
+        <div className='sidebar-brand'>
+        <BsBarChartLine className='icon_header' /> Course Performance 
+        </div>
+        <span className='icon close_icon' onClick={OpenSidebar}>X</span>
+      </div>
 
-        const navIconStyle = {
-            color: '#fff',
-        };
-        return (
-            <SideNav
-                expanded={this.state.expanded}
-                style={sideNavStyle}
-                onToggle={()=>this.setState({expanded : !this.state.expanded})}
-            >
-                <SideNav.Toggle onClick={()=>this.setState({expanded : !this.state.expanded})} />
-                <SideNav.Nav defaultSelected="Dashboard">
-                    <NavItem eventKey="Dashboard" style={navItemStyle}>
-                        <NavIcon style={navIconStyle}>
-                            <i className="fas fa-tachometer-alt me-2" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            <NavLink to="/dashboard" style={{ color: 'inherit', textDecoration: 'none' }}>
-                                Dashboard
-                            </NavLink>
-                        </NavText>
-                    </NavItem>
-                    <NavItem eventKey="Emotions Detections" style={navItemStyle}>
-                        <NavIcon style={navIconStyle}>
-                            <i className="fas fa-smile me-2" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            <NavLink  to="/emotionDetection" style={{ color: 'inherit', textDecoration: 'none' }}> 
-                                Emotions Detections
-                            </NavLink>
-                        </NavText>    
-                        
-                    </NavItem>
-                </SideNav.Nav>
-            </SideNav>
-        );
-    }
+      <ul className='sidebar-list'>
+      {sidebarItems.map((item,index)=>(
+          <li 
+                  key={index}
+                  className='sidebar-list-item'  
+                  style={location.pathname===item.to ?  styleCurrentLink : {}}>
+          <Link to={item.to} >
+             {item.icone} {item.label}
+          </Link>
+        </li>
+      ))}
+        <li className='sidebar-list-item'>
+          <a href="">
+            <BsFillGearFill className='icon' /> Setting
+          </a>
+        </li>
+        <li className='sidebar-list-item'>
+          <a href="">
+            <BsBoxArrowRight className='icon' /> Sign Out
+          </a>
+        </li>
+      </ul>
+    </aside>
+  )
 }
+
+export default SideBare;

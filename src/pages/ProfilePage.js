@@ -1,14 +1,11 @@
 
 import React from "react";
-// import "../assets/sb-admin-2.min.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import SideBare from "../componant/SideBare";
-import BarChart from "../componant/BarChart";
-import DashboardService from "../services/dashboardDataService";
 import Header from "../componant/Header";
-import DashboardContent from "../componant/DashboardContent";
+import UserProfile from "../componant/Profile";
 import '../componant/sidebare.css'
-export default class Dashboard extends React.Component {
+export default class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +27,7 @@ export default class Dashboard extends React.Component {
         <div className='grid-container'>
             <Header OpenSidebar={this.OpenSidebar} user={this.state.user}/>
             <SideBare openSidebarToggle={this.state.openSidebarToggle} OpenSidebar={this.OpenSidebar} user={this.state.user}/>
-            <DashboardContent user={this.state.user} />
+            <UserProfile userInfo={this.state.user} />
         </div>
         );
     }

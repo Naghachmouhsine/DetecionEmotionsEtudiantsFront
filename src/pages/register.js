@@ -5,6 +5,7 @@ import LoginCompenant from "../componant/LoginCompenant";
 import AuthService from "../services/authService";
 import { Navigate } from "react-router";
 import Swal from "sweetalert2";
+import RegisterModal from "../componant/registerModal";
 export default class Register extends React.Component {
     constructor(props){
         super(props)
@@ -132,125 +133,7 @@ export default class Register extends React.Component {
               {/* Logo Section */}
               <LoginCompenant url="/login" type="Sign Up" />
             </div>
-            <div className="col-md-6 p-4">
-              {/* Form Section */}
-              <h3 className="text-center mb-4">Register</h3>
-
-                        <form onSubmit={this.submitForm} style={{paddingTopc: "0",paddingBottom : "0"}}>
-                        <   div className="form-group mb-3">
-                                <label htmlFor="nom">nom</label>
-                                <input
-                                    id="nom"
-                                    type="nom"
-                                    name="nom"
-                                    className="form-control"
-                                    required
-                                    autoFocus
-                                    autoComplete="nom"
-                                    value={this.state.formData.nom}
-                                    onChange={this.changeDataForme}
-                                />
-                            </div>
-                            <div className="form-group mb-3">
-                                <label htmlFor="prenom">prenom</label>
-                                <input
-                                    id="prenom"
-                                    type="prenom"
-                                    name="prenom"
-                                    className="form-control"
-                                    required
-                                    autoFocus
-                                    autoComplete="prenom"
-                                    value={this.state.formData.prenom}
-                                    onChange={this.changeDataForme}
-
-                                />
-                            </div>
-                            <div className="form-group mb-3">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                required
-                                autoFocus
-                                autoComplete="email"
-                                value={this.state.formData.email}
-                                onChange={this.changeDataForme}
-                                
-                            />
-                            </div>
-                            <div className="form-group mb-3">
-                            <label htmlFor="password">Password</label>
-                            <input
-                                id="password"
-                                type="password"
-                                name="password"
-                                className="form-control"
-                                required
-                                autoComplete="current-password"
-                                value={this.state.formData.password}
-                                onChange={this.validatePassword}
-                                onFocus={()=>this.setState({displayUl : true})}
-                                onBlur={()=>this.setState({displayUl : false})}                                
-                            />
-                            </div>
-                            {!this.state.passwordIsValid && <p style={{color : "red"}}>password non valide </p>}
-                            <div className="form-group mb-3">
-                                <label htmlFor="passwordConf">confirm password</label>
-                                <input 
-                                    id="password_confirmation" 
-                                    type="password" 
-                                    className="form-control"
-                                    name="password_confirmation" 
-                                    required 
-                                    autoComplete="new-password" 
-                                    value={this.state.formData.password_confirmation}
-
-                                    onChange={this.passwordConfirm}
-
-                                />
-                                {!this.state.passwordIsConfirm && <p style={{color : "red",visibility : this}}>password non conforme</p>}
-                            </div>
-    
-                            <div className="form-group mb-3">
-                                <select
-                                    className="form-select"
-                                    //  placeholder="select role" 
-                                     id="role" 
-                                     name="role"
-                                     value={this.state.formData.role}
-                                     onChange={this.changeDataForme}
-                                    
-                                     >
-                                    <option value="" disabled >select role</option>
-                                    <option value={2}>Adminstrateur</option>
-                                    <option value={1}>Enseignant</option>
-                                </select>
-                            </div>
-                            <button type="submit" className="btn btn-primary w-100">
-                                sign up
-                            </button>
-                        </form>
-                        <ul  style={{visibility : this.state.displayUl ? "visible" : "hidden"}} >
-                            <li style={{ color: this.state.criteria.len ? 'green' : 'red' }}>
-                                Longueur minimale de 8 caractères
-                            </li>
-                            <li style={{ color: this.state.criteria.lowercase ? 'green' : 'red' }}>
-                                Contient des lettres minuscules
-                            </li>
-                            <li style={{ color: this.state.criteria.uppercase ? 'green' : 'red' }}>
-                                Contient des lettres majuscules
-                            </li>
-                            <li style={{ color: this.state.criteria.number ? 'green' : 'red' }}>
-                                Contient des chiffres
-                            </li>
-                            <li style={{ color: this.state.criteria.special ? 'green' : 'red' }}>
-                                Contient des caractères spéciaux
-                            </li>
-                        </ul>
-                    </div>
+                <RegisterModal isModal={false} />
                 </div>
             </div>
             </div>

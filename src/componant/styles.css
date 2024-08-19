@@ -1,14 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 0; */
     background-color: #f0f0f0;
 }
 
-.container {
+.containerCss {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
@@ -71,3 +71,75 @@ body {
     top: 0;
     left: 0;
 }
+
+/* debut style user profile */
+.user-profile {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.user-profile__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.user-profile__field {
+  margin-bottom: 15px;
+}
+
+.user-profile__label {
+  font-weight: bold;
+  margin-right: 10px;
+  display: inline-block;
+  width: 80px;
+  color: #555;
+}
+
+.user-profile__value {
+  font-size: 16px;
+  color: #555;
+}
+
+.user-profile__input {
+  width: calc(100% - 90px);
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.user-profile__actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-profile__button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.user-profile__button:hover {
+  background-color: #0056b3;
+}
+
+.user-profile__button--save {
+  background-color: #28a745;
+}
+
+.user-profile__button--save:hover {
+  background-color: #218838;
+}
+/* fin style user profile */
