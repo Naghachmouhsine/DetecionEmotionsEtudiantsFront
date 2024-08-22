@@ -14,7 +14,6 @@ function SideBare({ openSidebarToggle, OpenSidebar ,user}) {
     {to : "/profile","icone" :   <BsPersonCircle className='icon' /> ,"label" : "Profile"},
   ]
 
-  console.log(user)
   if(user.role==3)
     sidebarItems.push({to : "/gestionUser",icone : <BsPerson  className='icon' />,label : "gestions utilisateurs" })
   

@@ -1,7 +1,14 @@
 import React from 'react';
 import { BsJustify, BsSearch, BsFillBellFill, BsPersonCircle } from 'react-icons/bs';
-function Header({ openSidebarToggle, OpenSidebar ,user}) {
+import { Link } from 'react-router-dom';
+function Header({  OpenSidebar ,user}) {
+  const rolesLabel={
+    1 : "enseigenant",
+    2 : "administrateur",
+    3 : "super administrateur"
+  }
   return (
+
     <header className='header'>
       <div className='menu-icon'>
         <BsJustify className='icon' onClick={OpenSidebar} />
@@ -11,11 +18,13 @@ function Header({ openSidebarToggle, OpenSidebar ,user}) {
         <input type="text" placeholder="Search..." className="search-input" />
       </div>
       <div className='header-welcome'>
-        <p className='welcome-message'>Welcome, {user.nom} {user.prenom}! <span className="user-role">{user.roles}</span></p>
+        <p className='welcome-message'>Welcome, {user.nom} {user.prenom}! <span className="user-role">{rolesLabel[user.role]}</span></p>
       </div>
       <div className='header-right'>
         <BsFillBellFill className='icon bell-icon' />
-        <BsPersonCircle className='icon person-icon' />
+        <Link to="/profile">
+            <BsPersonCircle className='icon person-icon' />
+        </Link>
       </div>
     </header>
   );

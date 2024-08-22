@@ -12,8 +12,7 @@ function App() {
   useEffect(() => {
     // Vérifiez l'état d'authentification lors du chargement du composant
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user)
-    console.log(!!user)
+
     setIsAuth(!!user); // Convertit en booléen    
   }, []);
 

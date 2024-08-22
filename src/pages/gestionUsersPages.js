@@ -12,14 +12,10 @@ export default class GestionUsersPage extends React.Component {
             data : [],
             openSidebarToggle : false
         };
-        console.log(this.state.user);
     }
-    // async componentDidMount(){
-    //     const data=await DashboardService.getStatisitque(this.state.user.id)
-    //     this.setState({data : data})
-    // }
+
     OpenSidebar = () => {
-        this.setState({openSidebarToggle : !openSidebarToggle})
+        this.setState({openSidebarToggle : !this.state.openSidebarToggle})
       }
     render() {
         return (

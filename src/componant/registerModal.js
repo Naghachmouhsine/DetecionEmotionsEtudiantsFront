@@ -1,22 +1,20 @@
 import React from "react";
 import '../assets/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginCompenant from "../componant/LoginCompenant";
 import AuthService from "../services/authService";
-import { Navigate } from "react-router";
 import Swal from "sweetalert2";
 export default class RegisterModal extends React.Component {
     constructor(props){
         super(props)
         this.state={
             formData : {
-                nom : "",
-                prenom : "",
-                email : "",
+                nom : !!(this.props.user) ? this.props.user.nom  : "",
+                prenom : !!(this.props.user) ? this.props.user.prenom  : "",
+                email : !!(this.props.user) ? this.props.user.email  : "",
                 password :"",
-                password_confirmation :"",
-                role : ""
-            },
+                password_confirmation  : "",
+                role : !!(this.props.user) ? this.props.user.role : ""
+             },
             criteria: {
                 len: false,
                 lowercase: false,
@@ -42,7 +40,6 @@ export default class RegisterModal extends React.Component {
                 }
             }
         ))
-        console.log(this.state.formData)
     }
     validatePassword = (event) => {
         var password = event.target.value;
@@ -87,7 +84,9 @@ export default class RegisterModal extends React.Component {
         if(Object.values(this.state.criteria).every(value=>value==true)) //test est ce que tous les criteres motPass sont vérifié
         {
                 try {
-                    const response=await AuthService.auth(this.state.formData,"register")
+
+                    const typeReqet=(Object.keys(this.props.user).length==0) ? "register" : "updateProfile"
+                    const response=await AuthService.auth(this.state.formData,typeReqet)
                     console.log(response)
                     if(response.data.res==="emailExiste")
                     {
@@ -124,7 +123,6 @@ export default class RegisterModal extends React.Component {
         return (
             <div className={this.props.isModal ? "p-4" : "col-md-6 p-4"} style={{backgroundColor : "#fff"}}>
               {/* Form Section */}
-              <h3 className="text-center mb-4">Register</h3>
 
                         <form onSubmit={this.submitForm} style={{paddingTopc: "0",paddingBottom : "0"}}>
                         <   div className="form-group mb-3">
@@ -168,6 +166,7 @@ export default class RegisterModal extends React.Component {
                                 autoComplete="email"
                                 value={this.state.formData.email}
                                 onChange={this.changeDataForme}
+                                disabled={!!this.props.user}
                                 
                             />
                             </div>

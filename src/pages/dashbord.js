@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
     //     this.setState({data : data})
     // }
     OpenSidebar = () => {
-        this.setState({openSidebarToggle : !openSidebarToggle})
+        this.setState({openSidebarToggle : !this.state.openSidebarToggle})
       }
     render() {
         return (
