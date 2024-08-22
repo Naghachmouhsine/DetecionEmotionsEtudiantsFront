@@ -28,7 +28,7 @@ export default class RegisterModal extends React.Component {
             passwordIsValid : true,
             emailExist : false
         }
-
+        console.log(props.user)
     }
     changeDataForme=(event)=>{
         const {name,value}=event.target
@@ -121,7 +121,7 @@ export default class RegisterModal extends React.Component {
       }
     render() {
         return (
-            <div className={this.props.isModal ? "p-4" : "col-md-6 p-4"} style={{backgroundColor : "#fff"}}>
+            <div className={this.props.isModal ? "p-4" : "col-md-6 p-4"} style={{backgroundColor : "#fff",color : "#000"}}>
               {/* Form Section */}
 
                         <form onSubmit={this.submitForm} style={{paddingTopc: "0",paddingBottom : "0"}}>
@@ -166,7 +166,7 @@ export default class RegisterModal extends React.Component {
                                 autoComplete="email"
                                 value={this.state.formData.email}
                                 onChange={this.changeDataForme}
-                                disabled={!!this.props.user}
+                                disabled={Object.keys(this.props.user)!=0}
                                 
                             />
                             </div>

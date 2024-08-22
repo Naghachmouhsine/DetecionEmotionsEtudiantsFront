@@ -14,7 +14,8 @@ export default class Login extends React.Component {
         "password" : ""
       },
       authReussi : true,
-      redirect : null
+      redirect : null,
+      passwordShow : false
     }
   }
   submitForm=async (e)=>{
@@ -85,7 +86,7 @@ export default class Login extends React.Component {
                   <label htmlFor="password">Password</label>
                   <input
                     id="password"
-                    type="password"
+                    type={this.state.passwordShow ? "text" : "password"}
                     name="password"
                     className="form-control"
                     required
@@ -94,6 +95,16 @@ export default class Login extends React.Component {
                     onChange={this.changeDataForm}
 
                   />
+                </div>
+
+                <div className="form-group mb-3">
+                  <input
+                    id="checbox"
+                    class="form-check-input" 
+                    type="checkbox" 
+                    onClick={()=>this.setState({passwordShow : !this.state.passwordShow})}
+                  />
+                  <label for="checbox" className="form-check-label ms-1" >show password</label>
                 </div>
                 {!this.state.authReussi && <p style={{color : "red"}}>email ou motPass incorrect</p>}
                 <button type="submit" className="btn btn-primary w-100">
