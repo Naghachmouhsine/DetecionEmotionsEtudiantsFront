@@ -286,5 +286,22 @@ body {
     font-weight: bold; /* Mettre en gras */
   }
   
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de s'adapter aux petites tailles d'écran */
+    justify-content: space-between; /* Espace entre les graphiques */
+    gap: 20px; /* Espacement entre les graphiques */
+    width: 100%; /* S'étend sur toute la largeur du parent */
+  }
   
+  .chart-item {
+    flex: 1 1 48%; /* Chaque graphique occupe environ 48% de la largeur disponible */
+    min-width: 300px; /* Largeur minimale pour chaque graphique */
+  }
   
+  @media (max-width: 768px) {
+    .chart-item {
+      flex: 1 1 100%; /* Sur les petits écrans, les graphiques prennent toute la largeur */
+    }
+  }
+    

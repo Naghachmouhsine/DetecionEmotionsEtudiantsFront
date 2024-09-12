@@ -8,12 +8,22 @@ import ProfilePage from './pages/ProfilePage';
 import "./App.css"
 import GestionUsersPage from './pages/gestionUsersPages';
 function App() {
-  const [isAuth,setIsAuth]=useState(JSON.parse(localStorage.getItem("user")))
-  useEffect(() => {
-    // Vérifiez l'état d'authentification lors du chargement du composant
-    const user = JSON.parse(localStorage.getItem("user"));
+  // const [isAuth,setIsAuth]=useState(JSON.parse(localStorage.getItem("user")))
+  const [isAuth,setIsAuth]=useState(true)
 
-    setIsAuth(!!user); // Convertit en booléen    
+  useEffect(() => {
+    const userLocal = localStorage.getItem("user");
+
+    // Vérifiez si "userLocal" existe et est une chaîne JSON valide
+    if (userLocal) {
+      try {
+        const user = JSON.parse(userLocal); // Parse seulement si c'est une chaîne JSON valide
+        setIsAuth(!!user); // Convertir l'utilisateur en booléen (true si l'utilisateur existe)
+      } catch (error) {
+        console.error("Erreur lors de l'analyse JSON:", error);
+        setIsAuth(false); // Si erreur, définir l'authentification à false
+      }
+    }
   }, []);
 
   return (

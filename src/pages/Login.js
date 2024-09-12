@@ -4,7 +4,6 @@ import LoginCompenant from '../componant/LoginCompenant';
 import AuthService from '../services/authService';
 import Swal from 'sweetalert2';
 import { Navigate, redirect } from 'react-router';
-import FaceDetectionService from '../services/FaceDetectionService';
 export default class Login extends React.Component {
   constructor(props){
     super(props)
@@ -14,7 +13,7 @@ export default class Login extends React.Component {
         "password" : ""
       },
       authReussi : true,
-      redirect : null,
+      redirect : false,
       passwordShow : false
     }
   }
@@ -26,9 +25,8 @@ export default class Login extends React.Component {
         this.setState({authReussi : false})
       else{
         localStorage.setItem("user",JSON.stringify(response.data.user))
-        localStorage.setItem("isAuth",true)
         console.log(response.data)
-        this.setState({redirect : "/dashboard"})
+        this.setState({redirect : true})
       }
 
     } catch (error) {
@@ -55,7 +53,7 @@ export default class Login extends React.Component {
   }
   render() {
     if(this.state.redirect)
-      return <Navigate to={this.state.redirect}></Navigate>
+      return <Navigate to="/dashboard" ></Navigate>
     return (
       <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
         <div className="card shadow-sm" style={{ width: '800px' }}>
